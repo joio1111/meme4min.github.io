@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$4MIN - The Dive Never Ends</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #00ffd4;
+      margin-top: 2rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    .meme {
+      margin-top: 2rem;
+      max-width: 90%;
+      border-radius: 10px;
+    }
+
+    .timer {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    .music-toggle {
+      margin-top: 0.5rem;
+      color: #00ffd4;
+      cursor: pointer;
+    }
+
+    .button {
+      margin-top: 1rem;
+      padding: 12px 24px;
+      background-color: #00ffd4;
+      border: none;
+      color: #000;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .social {
+      margin-top: 1rem;
+    }
+
+    .social a {
+      margin: 0 10px;
+      color: #00ffd4;
+      text-decoration: none;
+    }
+
+    .dive-log {
+      margin-top: 2rem;
+      background-color: #111;
+      padding: 1rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+    }
+
+    .dive-log h3 {
+      margin-bottom: 1rem;
+    }
+
+    .entry {
+      font-style: italic;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">$4MIN</div>
+
+  <img class="meme" src="https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif" alt="Ashton Floating">
+
+  <div class="timer" id="timer">04:00</div>
+  <div class="music-toggle" onclick="toggleMusic()">Play Music</div>
+
+  <button class="button" onclick="window.open('https://pump.fun/', '_blank')">Buy $4MIN</button>
+
+  <div class="social">
+    <a href="https://t.me/MEME4MIN" target="_blank">Telegram</a>
+    <a href="#">Twitter</a> <!-- Update this once you make it -->
+  </div>
+
+  <div class="dive-log">
+    <h3>Dive Log</h3>
+    <div class="entry">Day 12 – Still floating.</div>
+    <div class="entry">Day 16 – Clouds forming around him.</div>
+    <div class="entry">Day 19 – I think I saw a bird next to him.</div>
+    <div class="entry">Day 21 – A drone flew past and waved.</div>
+    <div class="entry">Day 25 – He started orbiting the Earth.</div>
+  </div>
+
+  <audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    let musicPlaying = false;
+    const audio = document.getElementById("bg-music");
+
+    function toggleMusic() {
+      if (musicPlaying) {
+        audio.pause();
+        document.querySelector(".music-toggle").innerText = "Play Music";
+      } else {
+        audio.play();
+        document.querySelector(".music-toggle").innerText = "Mute Music";
+      }
+      musicPlaying = !musicPlaying;
+    }
+
+    let countdown = 240;
+    const timerElement = document.getElementById("timer");
+    setInterval(() => {
+      countdown--;
+      if (countdown <= 0) countdown = 240;
+      let minutes = Math.floor(countdown / 60);
+      let seconds = countdown % 60;
+      timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
