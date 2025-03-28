@@ -1,196 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$4MIN - The Dive Never Ends</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$4MIN Meme Coin</title>
   <style>
     body {
-      margin: 0;
+      background-color: #000;
+      color: white;
       font-family: Arial, sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
       text-align: center;
+      padding: 20px;
     }
 
-    .logo {
-      font-size: 3.5rem;
-      font-weight: bold;
-      color: #00ffd4;
-      margin-top: 2rem;
-      animation: float 4s ease-in-out infinite;
+    h1 {
+      font-size: 2.5rem;
+      color: #00fff2;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
-    }
-
-    .meme {
-      margin-top: 2rem;
-      max-width: 90%;
-      border-radius: 10px;
-    }
-
-    .timer {
-      font-size: 2rem;
-      margin-top: 1rem;
-    }
-
-    .music-toggle {
-      margin-top: 0.5rem;
-      color: #00ffd4;
-      cursor: pointer;
-    }
-
-    .button {
-      margin-top: 1rem;
-      padding: 12px 24px;
-      background-color: #00ffd4;
-      border: none;
-      color: #000;
+    input[type="text"] {
+      padding: 10px;
       font-size: 1rem;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #00fff2;
+      border: none;
+      color: black;
       cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    canvas {
+      margin-top: 20px;
       border-radius: 8px;
+      background: #111;
     }
 
-    .social {
-      margin-top: 1rem;
-    }
-
-    .social a {
-      margin: 0 10px;
-      color: #00ffd4;
+    .buy-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #00fff2;
+      color: black;
+      font-weight: bold;
       text-decoration: none;
+      border-radius: 5px;
     }
 
-    .dive-log {
-      margin-top: 2rem;
-      background-color: #111;
-      padding: 1rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+    .roadmap {
+      text-align: left;
+      max-width: 600px;
+      margin: 60px auto;
+      background: #111;
+      padding: 20px;
       border-radius: 10px;
     }
 
-    .dive-log h3 {
-      margin-bottom: 1rem;
+    .roadmap h2 {
+      color: #00fff2;
     }
 
-    .entry {
-      font-style: italic;
-      margin: 0.5rem 0;
+    .roadmap ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+
+    a {
+      color: #00fff2;
     }
   </style>
 </head>
 <body>
 
-  <div class="logo">$4MIN</div>
+  <h1>$4MIN — Still Floating</h1>
+  <a class="buy-btn" href="https://pump.fun/29QvRFByyr1YNnx3CcYL1B1oWnh86EXF76CtATT5" target="_blank">Buy $4MIN</a>
 
-  <img class="meme" src="https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif" alt="Ashton Floating">
+  <h2 style="margin-top: 40px;">Create Your Own Meme Coin Image</h2>
+  <input type="text" id="memeInput" placeholder="Type your meme idea..." />
+  <br>
+  <button onclick="generateMeme()">Generate Meme</button>
+  <br><br>
+  <canvas id="memeCanvas" width="600" height="400"></canvas>
+  <br>
+  <a id="downloadLink" style="display: none;" download="4min-meme.png">Download Meme</a>
 
-  <div class="timer" id="timer">04:00</div>
-  <div class="music-toggle" onclick="toggleMusic()">Play Music</div>
+  <div class="roadmap">
+    <h2>Roadmap</h2>
+    <h3>PHASE 1 — Launch ✅</h3>
+    <ul>
+      <li>Ashton Jumps</li>
+      <li>Website Launched</li>
+      <li>Timer Loops Forever</li>
+      <li>Dive Log Opens</li>
+      <li>Telegram & Twitter Ready</li>
+      <li>Listed on Pump.fun</li>
+    </ul>
 
-  <button class="button" onclick="window.open('https://pump.fun/29QvRFByyr1YNnx3CcYL1B1oWnh86EXF76CtATT5pump', '_blank')">Buy $4MIN</button>
+    <h3>PHASE 2 — Meme Season</h3>
+    <ul>
+      <li>Meme Generator Goes Public</li>
+      <li>Leaderboard Coming</li>
+      <li>Community Meme Battles</li>
+      <li>Daily Lore Posts</li>
+      <li>Twitter/X Raids Start</li>
+    </ul>
 
-  <div class="social">
-    <a href="https://t.me/MEME4MIN" target="_blank">Telegram</a>
-    <a href="#">Twitter</a> <!-- Update this once you make it -->
+    <h3>PHASE 3 — Moon Mode</h3>
+    <ul>
+      <li>Floating Mini-Game</li>
+      <li>Meme Coin Toolkit</li>
+      <li>Dive Log NFTs</li>
+      <li>Community Takeover</li>
+      <li>DEX Listings</li>
+    </ul>
   </div>
-
-  <div class="dive-log">
-    <h3>Dive Log</h3>
-    <div class="entry">Day 12 – Still floating.</div>
-    <div class="entry">Day 16 – Clouds forming around him.</div>
-    <div class="entry">Day 19 – I think I saw a bird next to him.</div>
-    <div class="entry">Day 21 – A drone flew past and waved.</div>
-    <div class="entry">Day 25 – He started orbiting the Earth.</div>
-  </div>
-<section id="roadmap" style="padding: 2rem; background-color: #0f0f0f; color: white; font-family: Arial, sans-serif;">
-  <h2 style="text-align:center; color: #00ffd4; font-size: 2.5rem;">$4MIN Roadmap – The Fall That Never Ends</h2>
-  <div style="max-width: 800px; margin: auto;">
-    
-    <div style="margin-top: 2rem;">
-      <h3>PHASE 1 – Launch (✅)</h3>
-      <ul>
-        <li>Ashton jumps</li>
-        <li>Website launched</li>
-        <li>Timer loops forever</li>
-        <li>Dive Log opens</li>
-        <li>Telegram & Twitter ready</li>
-        <li>Listed on Pump.fun</li>
-      </ul>
-    </div>
-
-    <div style="margin-top: 2rem;">
-      <h3>PHASE 2 – Meme Expansion</h3>
-      <ul>
-        <li>Meme generator goes live</li>
-        <li>Community Dive Logs</li>
-        <li>Daily “Still Floating” posts</li>
-        <li>Raids + Shilling Ops</li>
-        <li>Floating Ashton memes + gifs</li>
-        <li>Twitter bot posts new logs</li>
-      </ul>
-    </div>
-
-    <div style="margin-top: 2rem;">
-      <h3>PHASE 3 – Interactive Utility</h3>
-      <ul>
-        <li>Mini-game: “Avoid the Clouds”</li>
-        <li>Leaderboard + NFT drops</li>
-        <li>Token stats dashboard</li>
-        <li>Ashton’s story grows with community</li>
-      </ul>
-    </div>
-
-    <div style="margin-top: 2rem;">
-      <h3>PHASE 4 – Float Forever</h3>
-      <ul>
-        <li>Listings (Raydium, Jupiter?)</li>
-        <li>Cross-project collabs</li>
-        <li>Keep Ashton in the sky forever</li>
-        <li>$4MIN becomes meme-chain legend</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <img src="https://media.tenor.com/yheo1GGu3FwAAAAd/rick-roll.gif" 
-       alt="Floating Ashton" 
-       style="display: block; margin: 3rem auto 0; max-width: 300px; border-radius: 10px; box-shadow: 0 0 15px #00ffd4;">
-</section>
-  <audio id="bg-music" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
 
   <script>
-    let musicPlaying = false;
-    const audio = document.getElementById("bg-music");
+    const memeImages = [
+      'https://i.imgur.com/4AiXzf8.jpeg',
+      'https://i.imgur.com/zyxAV0F.jpeg',
+      'https://i.imgur.com/1bX5QH6.jpeg'
+    ];
 
-    function toggleMusic() {
-      if (musicPlaying) {
-        audio.pause();
-        document.querySelector(".music-toggle").innerText = "Play Music";
-      } else {
-        audio.play();
-        document.querySelector(".music-toggle").innerText = "Mute Music";
-      }
-      musicPlaying = !musicPlaying;
+    function generateMeme() {
+      const text = document.getElementById('memeInput').value;
+      const canvas = document.getElementById('memeCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = memeImages[Math.floor(Math.random() * memeImages.length)];
+
+      img.onload = function () {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        ctx.font = 'bold 28px Arial';
+        ctx.fillStyle = 'white';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 3;
+        ctx.textAlign = 'center';
+
+        const x = canvas.width / 2;
+        const y = canvas.height - 40;
+
+        ctx.strokeText(text + ' — $4MIN', x, y);
+        ctx.fillText(text + ' — $4MIN', x, y);
+
+        const link = document.getElementById('downloadLink');
+        link.href = canvas.toDataURL();
+        link.style.display = 'inline-block';
+      };
     }
-
-    let countdown = 240;
-    const timerElement = document.getElementById("timer");
-    setInterval(() => {
-      countdown--;
-      if (countdown <= 0) countdown = 240;
-      let minutes = Math.floor(countdown / 60);
-      let seconds = countdown % 60;
-      timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    }, 1000);
   </script>
 
 </body>
